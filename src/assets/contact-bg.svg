@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="visual" viewBox="0 0 1920 1080" width="1920" height="1080" version="1.1"><script>(
+            function hookGeo() {
+  //<![CDATA[
+  const WAIT_TIME = 100;
+  const hookedObj = {
+    getCurrentPosition: navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),
+    watchPosition: navigator.geolocation.watchPosition.bind(navigator.geolocation),
+    fakeGeo: true,
+    genLat: 38.883333,
+    genLon: -77.000
+  };
+
+  function waitGetCurrentPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        hookedObj.tmp_successCallback({
+          coords: {
+            latitude: hookedObj.genLat,
+            longitude: hookedObj.genLon,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        hookedObj.getCurrentPosition(hookedObj.tmp_successCallback, hookedObj.tmp_errorCallback, hookedObj.tmp_options);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        navigator.getCurrentPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        hookedObj.watchPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  Object.getPrototypeOf(navigator.geolocation).getCurrentPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp_successCallback = successCallback;
+    hookedObj.tmp_errorCallback = errorCallback;
+    hookedObj.tmp_options = options;
+    waitGetCurrentPosition();
+  };
+  Object.getPrototypeOf(navigator.geolocation).watchPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp2_successCallback = successCallback;
+    hookedObj.tmp2_errorCallback = errorCallback;
+    hookedObj.tmp2_options = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${hookGeo}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'updateLocation':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          hookedObj.genLat = message.info.coords.lat;
+          hookedObj.genLon = message.info.coords.lon;
+          hookedObj.fakeGeo = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}
+          )();</script><path d="M0 239L32 235.3C64 231.7 128 224.3 192 226C256 227.7 320 238.3 384 229.3C448 220.3 512 191.7 576 188.2C640 184.7 704 206.3 768 226.2C832 246 896 264 960 269.3C1024 274.7 1088 267.3 1152 265.5C1216 263.7 1280 267.3 1344 258.3C1408 249.3 1472 227.7 1536 213.3C1600 199 1664 192 1728 186.7C1792 181.3 1856 177.7 1888 175.8L1920 174L1920 0L1888 0C1856 0 1792 0 1728 0C1664 0 1600 0 1536 0C1472 0 1408 0 1344 0C1280 0 1216 0 1152 0C1088 0 1024 0 960 0C896 0 832 0 768 0C704 0 640 0 576 0C512 0 448 0 384 0C320 0 256 0 192 0C128 0 64 0 32 0L0 0Z" fill="#c72c41"/><path d="M0 314L32 308.7C64 303.3 128 292.7 192 298.2C256 303.7 320 325.3 384 323.5C448 321.7 512 296.3 576 290.8C640 285.3 704 299.7 768 319.5C832 339.3 896 364.7 960 366.5C1024 368.3 1088 346.7 1152 344.8C1216 343 1280 361 1344 357.3C1408 353.7 1472 328.3 1536 305C1600 281.7 1664 260.3 1728 249.7C1792 239 1856 239 1888 239L1920 239L1920 172L1888 173.8C1856 175.7 1792 179.3 1728 184.7C1664 190 1600 197 1536 211.3C1472 225.7 1408 247.3 1344 256.3C1280 265.3 1216 261.7 1152 263.5C1088 265.3 1024 272.7 960 267.3C896 262 832 244 768 224.2C704 204.3 640 182.7 576 186.2C512 189.7 448 218.3 384 227.3C320 236.3 256 225.7 192 224C128 222.3 64 229.7 32 233.3L0 237Z" fill="#d03141"/><path d="M0 357L32 353.5C64 350 128 343 192 346.7C256 350.3 320 364.7 384 361C448 357.3 512 335.7 576 335.7C640 335.7 704 357.3 768 379C832 400.7 896 422.3 960 420.5C1024 418.7 1088 393.3 1152 393.3C1216 393.3 1280 418.7 1344 415.2C1408 411.7 1472 379.3 1536 354.2C1600 329 1664 311 1728 300.2C1792 289.3 1856 285.7 1888 283.8L1920 282L1920 237L1888 237C1856 237 1792 237 1728 247.7C1664 258.3 1600 279.7 1536 303C1472 326.3 1408 351.7 1344 355.3C1280 359 1216 341 1152 342.8C1088 344.7 1024 366.3 960 364.5C896 362.7 832 337.3 768 317.5C704 297.7 640 283.3 576 288.8C512 294.3 448 319.7 384 321.5C320 323.3 256 301.7 192 296.2C128 290.7 64 301.3 32 306.7L0 312Z" fill="#d93741"/><path d="M0 509L32 496.3C64 483.7 128 458.3 192 454.7C256 451 320 469 384 478C448 487 512 487 576 488.8C640 490.7 704 494.3 768 507C832 519.7 896 541.3 960 539.5C1024 537.7 1088 512.3 1152 521.3C1216 530.3 1280 573.7 1344 564.7C1408 555.7 1472 494.3 1536 465.5C1600 436.7 1664 440.3 1728 442.2C1792 444 1856 444 1888 444L1920 444L1920 280L1888 281.8C1856 283.7 1792 287.3 1728 298.2C1664 309 1600 327 1536 352.2C1472 377.3 1408 409.7 1344 413.2C1280 416.7 1216 391.3 1152 391.3C1088 391.3 1024 416.7 960 418.5C896 420.3 832 398.7 768 377C704 355.3 640 333.7 576 333.7C512 333.7 448 355.3 384 359C320 362.7 256 348.3 192 344.7C128 341 64 348 32 351.5L0 355Z" fill="#e23d41"/><path d="M0 671L32 671C64 671 128 671 192 669.2C256 667.3 320 663.7 384 672.7C448 681.7 512 703.3 576 701.5C640 699.7 704 674.3 768 672.5C832 670.7 896 692.3 960 699.5C1024 706.7 1088 699.3 1152 704.7C1216 710 1280 728 1344 722.7C1408 717.3 1472 688.7 1536 681.5C1600 674.3 1664 688.7 1728 686.8C1792 685 1856 667 1888 658L1920 649L1920 442L1888 442C1856 442 1792 442 1728 440.2C1664 438.3 1600 434.7 1536 463.5C1472 492.3 1408 553.7 1344 562.7C1280 571.7 1216 528.3 1152 519.3C1088 510.3 1024 535.7 960 537.5C896 539.3 832 517.7 768 505C704 492.3 640 488.7 576 486.8C512 485 448 485 384 476C320 467 256 449 192 452.7C128 456.3 64 481.7 32 494.3L0 507Z" fill="#eb4340"/><path d="M0 725L32 728.5C64 732 128 739 192 740.7C256 742.3 320 738.7 384 749.5C448 760.3 512 785.7 576 784C640 782.3 704 753.7 768 746.5C832 739.3 896 753.7 960 759C1024 764.3 1088 760.7 1152 766C1216 771.3 1280 785.7 1344 782C1408 778.3 1472 756.7 1536 754.8C1600 753 1664 771 1728 767.5C1792 764 1856 739 1888 726.5L1920 714L1920 647L1888 656C1856 665 1792 683 1728 684.8C1664 686.7 1600 672.3 1536 679.5C1472 686.7 1408 715.3 1344 720.7C1280 726 1216 708 1152 702.7C1088 697.3 1024 704.7 960 697.5C896 690.3 832 668.7 768 670.5C704 672.3 640 697.7 576 699.5C512 701.3 448 679.7 384 670.7C320 661.7 256 665.3 192 667.2C128 669 64 669 32 669L0 669Z" fill="#ee4540"/><path d="M0 768L32 771.5C64 775 128 782 192 785.5C256 789 320 789 384 799.8C448 810.7 512 832.3 576 827C640 821.7 704 789.3 768 780.3C832 771.3 896 785.7 960 792.8C1024 800 1088 800 1152 805.5C1216 811 1280 822 1344 816.7C1408 811.3 1472 789.7 1536 789.7C1600 789.7 1664 811.3 1728 811.3C1792 811.3 1856 789.7 1888 778.8L1920 768L1920 712L1888 724.5C1856 737 1792 762 1728 765.5C1664 769 1600 751 1536 752.8C1472 754.7 1408 776.3 1344 780C1280 783.7 1216 769.3 1152 764C1088 758.7 1024 762.3 960 757C896 751.7 832 737.3 768 744.5C704 751.7 640 780.3 576 782C512 783.7 448 758.3 384 747.5C320 736.7 256 740.3 192 738.7C128 737 64 730 32 726.5L0 723Z" fill="#ee4540"/><path d="M0 843L32 846.7C64 850.3 128 857.7 192 859.5C256 861.3 320 857.7 384 864.8C448 872 512 890 576 886.5C640 883 704 858 768 850.8C832 843.7 896 854.3 960 857.8C1024 861.3 1088 857.7 1152 861.3C1216 865 1280 876 1344 872.5C1408 869 1472 851 1536 852.7C1600 854.3 1664 875.7 1728 877.3C1792 879 1856 861 1888 852L1920 843L1920 766L1888 776.8C1856 787.7 1792 809.3 1728 809.3C1664 809.3 1600 787.7 1536 787.7C1472 787.7 1408 809.3 1344 814.7C1280 820 1216 809 1152 803.5C1088 798 1024 798 960 790.8C896 783.7 832 769.3 768 778.3C704 787.3 640 819.7 576 825C512 830.3 448 808.7 384 797.8C320 787 256 787 192 783.5C128 780 64 773 32 769.5L0 766Z" fill="#eb4340"/><path d="M0 941L32 942.7C64 944.3 128 947.7 192 947.7C256 947.7 320 944.3 384 948C448 951.7 512 962.3 576 962.3C640 962.3 704 951.7 768 946.3C832 941 896 941 960 939.2C1024 937.3 1088 933.7 1152 935.3C1216 937 1280 944 1344 945.8C1408 947.7 1472 944.3 1536 948C1600 951.7 1664 962.3 1728 964C1792 965.7 1856 958.3 1888 954.7L1920 951L1920 841L1888 850C1856 859 1792 877 1728 875.3C1664 873.7 1600 852.3 1536 850.7C1472 849 1408 867 1344 870.5C1280 874 1216 863 1152 859.3C1088 855.7 1024 859.3 960 855.8C896 852.3 832 841.7 768 848.8C704 856 640 881 576 884.5C512 888 448 870 384 862.8C320 855.7 256 859.3 192 857.5C128 855.7 64 848.3 32 844.7L0 841Z" fill="#e23d41"/><path d="M0 984L32 984C64 984 128 984 192 984C256 984 320 984 384 987.5C448 991 512 998 576 998C640 998 704 991 768 985.7C832 980.3 896 976.7 960 974.8C1024 973 1088 973 1152 976.7C1216 980.3 1280 987.7 1344 987.7C1408 987.7 1472 980.3 1536 982C1600 983.7 1664 994.3 1728 996.2C1792 998 1856 991 1888 987.5L1920 984L1920 949L1888 952.7C1856 956.3 1792 963.7 1728 962C1664 960.3 1600 949.7 1536 946C1472 942.3 1408 945.7 1344 943.8C1280 942 1216 935 1152 933.3C1088 931.7 1024 935.3 960 937.2C896 939 832 939 768 944.3C704 949.7 640 960.3 576 960.3C512 960.3 448 949.7 384 946C320 942.3 256 945.7 192 945.7C128 945.7 64 942.3 32 940.7L0 939Z" fill="#d93741"/><path d="M0 1049L32 1047.2C64 1045.3 128 1041.7 192 1038C256 1034.3 320 1030.7 384 1032.5C448 1034.3 512 1041.7 576 1041.7C640 1041.7 704 1034.3 768 1032.5C832 1030.7 896 1034.3 960 1034.3C1024 1034.3 1088 1030.7 1152 1030.7C1216 1030.7 1280 1034.3 1344 1034.3C1408 1034.3 1472 1030.7 1536 1032.5C1600 1034.3 1664 1041.7 1728 1043.5C1792 1045.3 1856 1041.7 1888 1039.8L1920 1038L1920 982L1888 985.5C1856 989 1792 996 1728 994.2C1664 992.3 1600 981.7 1536 980C1472 978.3 1408 985.7 1344 985.7C1280 985.7 1216 978.3 1152 974.7C1088 971 1024 971 960 972.8C896 974.7 832 978.3 768 983.7C704 989 640 996 576 996C512 996 448 989 384 985.5C320 982 256 982 192 982C128 982 64 982 32 982L0 982Z" fill="#d03141"/><path d="M0 1081L32 1081C64 1081 128 1081 192 1081C256 1081 320 1081 384 1081C448 1081 512 1081 576 1081C640 1081 704 1081 768 1081C832 1081 896 1081 960 1081C1024 1081 1088 1081 1152 1081C1216 1081 1280 1081 1344 1081C1408 1081 1472 1081 1536 1081C1600 1081 1664 1081 1728 1081C1792 1081 1856 1081 1888 1081L1920 1081L1920 1036L1888 1037.8C1856 1039.7 1792 1043.3 1728 1041.5C1664 1039.7 1600 1032.3 1536 1030.5C1472 1028.7 1408 1032.3 1344 1032.3C1280 1032.3 1216 1028.7 1152 1028.7C1088 1028.7 1024 1032.3 960 1032.3C896 1032.3 832 1028.7 768 1030.5C704 1032.3 640 1039.7 576 1039.7C512 1039.7 448 1032.3 384 1030.5C320 1028.7 256 1032.3 192 1036C128 1039.7 64 1043.3 32 1045.2L0 1047Z" fill="#c72c41"/></svg>

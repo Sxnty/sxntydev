@@ -1,0 +1,23 @@
+$dark: #2D132C;
+$darkred: #801336;
+$red: #C72C41;
+$lightred: #EE4540;
+$logofont: 'Manrope', sans-serif;
+$titlefont:'Sora', sans-serif;
+$headerfont: 'Raleway', sans-serif;
+$generalpadding: 1rem 4rem;
+
+%button-primary {
+    font-family: $titlefont;
+    background-color: transparent;
+    padding: .5rem 2rem;;
+    border: 2px solid $darkred;
+    color: white;
+    width: fit-content;
+    cursor: pointer;
+    transition: background 250ms;
+    &:hover {
+        background: url('../images/button-bg.svg') no-repeat center;
+        background-size: cover;
+    }
+}

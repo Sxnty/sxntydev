@@ -1,0 +1,187 @@
+
+.contact {
+    position: relative;
+    background: url("../images/contact-bg.svg") fixed center no-repeat;
+    background-size: cover;
+    .custom-shape-divider-top-1665581130 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    
+    .custom-shape-divider-top-1665581130 svg {
+        position: relative;
+        display: block;
+        width: calc(300% + 1.3px);
+        height: 262px;
+    }
+    
+    .custom-shape-divider-top-1665581130 .shape-fill {
+        fill: #2D132C;
+    }
+    .custom-shape-divider-bottom-1665582059 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    
+    .custom-shape-divider-bottom-1665582059 svg {
+        position: relative;
+        display: block;
+        width: calc(189% + 1.3px);
+        height: 56px;
+    }
+    
+    .custom-shape-divider-bottom-1665582059 .shape-fill {
+        fill: #2D132C;
+    }
+
+    .contact__main {
+        
+        position: static;
+        padding: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        .contact__left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 100%;
+            }
+        }
+        .contact__right {
+            flex: 1;
+            padding: 3rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 2rem;
+
+            background: url("../images/form-bg.svg")fixed no-repeat center;
+            background-size: cover;
+            h2 {
+                color: white;
+                font-family: $logofont;
+                padding: .5rem 0;
+            }
+            form {
+                gap: 1rem;
+                display: flex;
+                align-items: flex-start;
+                justify-content: start;
+                flex-direction: column;
+                text-align: left;
+                input {
+                    padding: 1rem;
+                    width: 100%;
+                    background-color: #ee46400c;
+                    border: 1px solid   $dark;
+                    border-radius: .55rem;
+                    &::placeholder {
+                        color: white;
+                        font-family: $logofont;
+                    }
+                }
+                textarea {
+                    width: 100%;
+                    padding: 1rem;
+                    background-color: #ee46400c;
+                    border: 1px solid   $dark;
+                    border-radius: .55rem;
+                    resize: none;
+                    &::placeholder {
+                        color: white;
+                        font-family: $logofont;
+                    }
+                }
+                button {
+                    font-family: $titlefont;
+                    background-color: transparent;
+                    padding: .5rem 2rem;;
+                    border: 2px solid $darkred;
+                    color: white;
+                    width: fit-content;
+                    cursor: pointer;
+                    transition: background 250ms;
+                    &:hover {
+                        background: url("../images/form-bg.svg")no-repeat center;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.connected {
+    
+    height: 20vh;
+    .connected__main {
+        background: url("../images/gradient-bg.png") fixed no-repeat center;
+        background-size: cover;
+        position: relative;
+        padding: 5rem 5rem 0 5rem;
+        .custom-shape-divider-top-1665688904 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .custom-shape-divider-top-1665688904 svg {
+            position: relative;
+            display: block;
+            width: calc(204% + 1.3px);
+            height: 100px;
+        }
+        
+        .custom-shape-divider-top-1665688904 .shape-fill {
+            fill: #2D132C;
+        }
+        .connected__text {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                font-family: $titlefont;
+                font-size: 2rem;
+                padding: .5rem;
+                border-bottom: 2px solid white;
+                color: white;
+            }
+        }
+        .connected__socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            gap: 1rem;
+            i {
+                border-radius: .25rem;
+                padding: .5rem;
+                font-size: 2rem;
+                color: $lightred;
+                transition: background,color 250ms;
+                &:hover {
+                    background: url("../images/background-desktop.svg") center no-repeat;
+                    background-size: cover;
+                    color: white;
+                }
+            }
+        }
+    }
+}

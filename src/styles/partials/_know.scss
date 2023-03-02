@@ -1,0 +1,91 @@
+.knowledge {
+    background: url("../images/background-desktop") fixed no-repeat;
+    background-size: cover;
+    padding: 3rem;
+    position: relative;
+    .know__main {
+        .custom-shape-divider-top-1665749965 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .custom-shape-divider-top-1665749965 svg {
+            position: relative;
+            display: block;
+            width: calc(233% + 1.3px);
+            height: 84px;
+        }
+        
+        .custom-shape-divider-top-1665749965 .shape-fill {
+            fill: $dark;
+        }
+
+
+        .custom-shape-divider-bottom-1665750197 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .custom-shape-divider-bottom-1665750197 svg {
+            position: relative;
+            display: block;
+            width: calc(233% + 1.3px);
+            height: 42px;
+            transform: rotateY(180deg);
+        }
+        
+        .custom-shape-divider-bottom-1665750197 .shape-fill {
+            fill: $dark;
+        }
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        gap: 1rem;
+        .know__top {
+            p {
+                padding: .5rem 0;
+                color: #aaaaaaaf;
+                font-family: $logofont;
+                font-weight: lighter;
+                letter-spacing: 2px;
+            }
+            h2 {
+                color: white;
+                font-family: $titlefont;
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            width: 20%;
+            border-bottom: 1px solid white;
+        }
+        .know__bottom {
+            padding: 1rem;
+            gap: 5rem;
+            display: flex;
+            i {
+                border-radius: .25rem;
+                padding: .5rem;
+                font-size: 3rem;
+                color: $lightred;
+                transition: background,color 250ms;
+                &:hover {
+                    background: url("../images/background-desktop.svg") center no-repeat;
+                    background-size: cover;
+                    color: white;
+                }
+            }
+        }
+    }
+}

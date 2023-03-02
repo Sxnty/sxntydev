@@ -1,0 +1,67 @@
+.portfolio {
+  padding: 10rem;
+  background: url("../images/portfolio-bg.svg") no-repeat;
+  background-size: cover;
+  position: relative;
+  .portfolio__main {
+    .custom-shape-divider-bottom-1665582059 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+    }
+    .custom-shape-divider-bottom-1665582059 svg {
+      position: relative;
+      display: block;
+      width: calc(189% + 1.3px);
+      height: 56px;
+    }
+
+    .custom-shape-divider-bottom-1665582059 .shape-fill {
+      fill: #2d132c;
+    }
+    .port__top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: 2rem;
+      h2 {
+        color: white;
+        font-family: $titlefont;
+      }
+      p {
+        color: #aaaaaaaf;
+        font-family: $logofont;
+      }
+    }
+    .port__bottom {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 100%;
+      gap: 2rem;
+      .port__card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 250ms;
+        opacity: 80%;
+        img {
+          box-shadow: rgba(165, 149, 149, 0.2) 0px 8px 24px;
+          border-radius: 0.25rem;
+          width: 100%;
+        }
+        &:hover {
+          transform: translateY(-20px) rotateX(15deg) scale(105%);
+          box-shadow: rgba(0, 0, 0, 0.39) 0px 54px 55px,
+            rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+            rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          opacity: 100%;
+        }
+      }
+    }
+  }
+}

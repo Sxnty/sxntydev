@@ -1,0 +1,55 @@
+body {
+    background-color: $dark;
+}
+
+.header {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    padding: 1rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header__logo {
+        h1 {
+            color: white;
+            font-family: $logofont;
+            font-weight: lighter;
+            cursor: pointer;
+            transition: color 250ms;
+            &:hover {
+                color: $lightred;
+            }
+        }   
+    }
+    .header__right {
+        nav {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            i {
+                display: none;
+            }
+        }
+        .header__menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+
+            a {
+                color: white;
+                font-family: $headerfont;
+                transition: color 100ms;
+                &:hover {
+                    color: rgb(221, 221, 221)
+                }
+            }
+            button {
+                @extend %button-primary;
+            }
+        }
+    }
+}
