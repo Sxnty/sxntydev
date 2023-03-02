@@ -1,42 +1,55 @@
-#Vector_61 {
-    transform: translateX(2px);
-    animation: moveLands 2s infinite alternate;
+#Vector{
+    transform: translateY(50px) translateX(50px);
+    animation: moveLands 5s infinite alternate ease-in-out;
 }
-#Vector_58 {
-    transform: translateY(-2px);
-    animation: moveLands 2s infinite alternate;
+#Ellipse_5, #Vector_101 {
+    transform: rotateY(10deg)translateY(-5px);
+    animation: moveLands 2s infinite alternate ease-in-out;
 }
-#Vector_55 {
-    transform: translateY(-2px) translateX(3px);
-    animation: moveLands 2s infinite alternate;
+#Vector_101{
+    fill: #666F4E;
 }
-#Vector_56 {
-    transform: translateY(-2px) translateX(3px) rotateY(5deg);
-    animation: moveLands 2s infinite alternate;
+#Vector_77{
+    transform: rotateX(10deg)translateX(-5px);
+    animation: moveLands 2s infinite alternate ease-in-out;
 }
-#Vector_54 {
-    transform: translateY(-2px) translateX(3px) rotateY(5deg);
-    animation: moveLands 2s infinite alternate;
+#Vector_84,#Vector_85,#Vector_86{
+    opacity: 50%;
+    animation: moveLands 1s infinite alternate ease-in-out;
 }
-#Vector_70 {
-    transform: translateY(-2px) translateX(3px);
-    animation: moveLands 3s infinite alternate;
+
+#Vector_75,#Vector_71,#Vector_63,#Vector_59{
+    opacity: 0%;
+    animation: moveLands 1s infinite alternate ease-in-out;
 }
-#Vector_13,#Vector_11 {
-    transform: rotateZ(.2deg);
-    animation: moveLands 1s infinite alternate;
-}
-#Vector_7 {
-    transform: rotateX(10deg);
+
+#Vector_76,#Vector_72,#Vector_65,#Vector_60{
+    opacity: 5%;
     animation: moveLands 3s infinite alternate ease-in-out;
 }
-#Vector_9 {
-    transform: rotateZ(.5deg);
+#Vector_44,#Vector_45,#Vector_46,#Vector_47{
+    opacity: 25%;
+    animation: moveLands 2s infinite alternate ease-in-out;
+}
+#Vector_92,#Vector_93,#Vector_65,#Vector_94{
+    fill: white;
+}
+#Vector_87 {
+    transform: translateX(2px);
     animation: moveLands 1s infinite alternate ease-in-out;
+}
+#Vector_88 {
+    transform: translateX(-2px);
+    animation: moveLands 2s infinite alternate ease-in-out;
+}
+#Vector_89 {
+    transform: translateX(4px);
+    animation: moveLands 2s infinite alternate linear;
 }
 
 @keyframes moveLands {
     100% {
+        opacity: unset;
         transform: unset;
     }
 }
