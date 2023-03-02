@@ -1,0 +1,37 @@
+.contact__left {
+  #Vector_19, #Vector_20 {
+    transform: translateX(4px) translateY(10px);
+    animation: illustration2 2s infinite alternate linear;
+  }
+  #Vector_22{
+    opacity: 65%;
+    animation: illustration2 2s infinite alternate linear;
+  }
+  #Vector_2 {
+    transform: translateX(-4px) translateY(-10px);
+    animation: illustration2 2s infinite alternate linear;
+  }
+  #Vector_7, #Vector_21 {
+    transform: translateY(10px);
+    animation: illustration2 5s infinite alternate linear;
+  }
+  #Vector_15, #Vector_16, #Vector_22, #Vector_23, #Vector_24, #Vector_25 {
+    transform: translateY(10px)rotateX(15deg) translateX(-15px);
+    animation: illustration2 5s infinite alternate linear; 
+  }
+  #Vector_10, #Vector_11, #Vector_13, #Vector_14, #Vector_12{
+    transform: translateY(-5px)rotateX(-15deg) translateX(15px);
+    animation: illustration2 2s infinite alternate linear; 
+  }
+  #Vector_9, #Vector_8, #Vector_5, #Vector_6, #Vector_4 {
+    transform: translateY(-5px) translateX(5px);
+    animation: illustration2 2s infinite alternate linear; 
+  }
+}
+
+@keyframes illustration2 {
+    100% {
+        opacity: unset;
+        transform: unset;
+    }
+}

@@ -9,7 +9,6 @@ import "aos/dist/aos.css";
 function Hero() {
   AOS.init();
   return (
-    <>
       <section className="hero__main">
         <div className="custom-shape-divider-bottom-1665533085">
           <svg
@@ -64,10 +63,9 @@ function Hero() {
           </div>
         </div>
         <div className="main__illustration">
-          <Illustration1 />
+          <Illustration1/>
         </div>
       </section>
-    </>
   );
 }
 

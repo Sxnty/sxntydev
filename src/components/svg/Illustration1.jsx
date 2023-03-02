@@ -534,7 +534,7 @@ function Illustration1() {
       </g>
       <defs>
         <clipPath id="clip0_0_1">
-          <rect width="786.82" height="572.258" fill="white" />
+          <rect width="7186.82" height="1000.258" fill="white" />
         </clipPath>
       </defs>
     </svg>

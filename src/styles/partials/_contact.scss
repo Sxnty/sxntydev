@@ -53,11 +53,16 @@
         align-items: center;
         gap: 2rem;
         .contact__left {
-            flex: 1;
             display: flex;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
-            img {
+            text-align: center;
+
+            flex: 1;
+            svg {
+                display: flex;
+                height: auto;
                 width: 100%;
             }
         }
@@ -66,7 +71,6 @@
             padding: 3rem;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             border-radius: 2rem;
-
             background: url("../assets/form-bg.svg")fixed no-repeat center;
             background-size: cover;
             h2 {

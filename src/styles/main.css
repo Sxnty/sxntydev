@@ -15,65 +15,89 @@
   background-size: cover;
 }
 
-#Vector {
+.main__illustration #Vector {
   transform: translateY(50px) translateX(50px);
   animation: moveLands 5s infinite alternate ease-in-out;
 }
-
-#Ellipse_5, #Vector_101 {
+.main__illustration #Ellipse_5, .main__illustration #Vector_101 {
   transform: rotateY(10deg) translateY(-5px);
   animation: moveLands 2s infinite alternate ease-in-out;
 }
-
-#Vector_101 {
+.main__illustration #Vector_101 {
   fill: #666F4E;
 }
-
-#Vector_77 {
-  transform: rotateX(10deg) translateX(-5px);
-  animation: moveLands 2s infinite alternate ease-in-out;
+.main__illustration #Vector_77 {
+  transform: rotateX(10deg) translateX(-10px);
+  animation: moveLands 3s infinite alternate ease-in-out;
 }
-
-#Vector_84, #Vector_85, #Vector_86 {
+.main__illustration #Vector_84, .main__illustration #Vector_85, .main__illustration #Vector_86 {
   opacity: 50%;
   animation: moveLands 1s infinite alternate ease-in-out;
 }
-
-#Vector_75, #Vector_71, #Vector_63, #Vector_59 {
+.main__illustration #Vector_75, .main__illustration #Vector_71, .main__illustration #Vector_63, .main__illustration #Vector_59 {
   opacity: 0%;
   animation: moveLands 1s infinite alternate ease-in-out;
 }
-
-#Vector_76, #Vector_72, #Vector_65, #Vector_60 {
+.main__illustration #Vector_76, .main__illustration #Vector_72, .main__illustration #Vector_65, .main__illustration #Vector_60 {
   opacity: 5%;
   animation: moveLands 3s infinite alternate ease-in-out;
 }
-
-#Vector_44, #Vector_45, #Vector_46, #Vector_47 {
+.main__illustration #Vector_44, .main__illustration #Vector_45, .main__illustration #Vector_46, .main__illustration #Vector_47 {
   opacity: 25%;
   animation: moveLands 2s infinite alternate ease-in-out;
 }
-
-#Vector_92, #Vector_93, #Vector_65, #Vector_94 {
+.main__illustration #Vector_92, .main__illustration #Vector_93, .main__illustration #Vector_65, .main__illustration #Vector_94 {
   fill: white;
 }
-
-#Vector_87 {
+.main__illustration #Vector_87 {
   transform: translateX(2px);
   animation: moveLands 1s infinite alternate ease-in-out;
 }
-
-#Vector_88 {
+.main__illustration #Vector_88 {
   transform: translateX(-2px);
   animation: moveLands 2s infinite alternate ease-in-out;
 }
-
-#Vector_89 {
+.main__illustration #Vector_89 {
   transform: translateX(4px);
   animation: moveLands 2s infinite alternate linear;
 }
-
 @keyframes moveLands {
+  100% {
+    opacity: unset;
+    transform: unset;
+  }
+}
+
+.contact__left #Vector_19, .contact__left #Vector_20 {
+  transform: translateX(4px) translateY(10px);
+  animation: illustration2 2s infinite alternate linear;
+}
+.contact__left #Vector_22 {
+  opacity: 65%;
+  animation: illustration2 2s infinite alternate linear;
+}
+.contact__left #Vector_2 {
+  transform: translateX(-4px) translateY(-10px);
+  animation: illustration2 2s infinite alternate linear;
+}
+.contact__left #Vector_7, .contact__left #Vector_21 {
+  transform: translateY(10px);
+  animation: illustration2 5s infinite alternate linear;
+}
+.contact__left #Vector_15, .contact__left #Vector_16, .contact__left #Vector_22, .contact__left #Vector_23, .contact__left #Vector_24, .contact__left #Vector_25 {
+  transform: translateY(10px) rotateX(15deg) translateX(-15px);
+  animation: illustration2 5s infinite alternate linear;
+}
+.contact__left #Vector_10, .contact__left #Vector_11, .contact__left #Vector_13, .contact__left #Vector_14, .contact__left #Vector_12 {
+  transform: translateY(-5px) rotateX(-15deg) translateX(15px);
+  animation: illustration2 2s infinite alternate linear;
+}
+.contact__left #Vector_9, .contact__left #Vector_8, .contact__left #Vector_5, .contact__left #Vector_6, .contact__left #Vector_4 {
+  transform: translateY(-5px) translateX(5px);
+  animation: illustration2 2s infinite alternate linear;
+}
+
+@keyframes illustration2 {
   100% {
     opacity: unset;
     transform: unset;
@@ -85,6 +109,20 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
+}
+
+html {
+  scrollbar-width: normal;
+}
+html ::-webkit-scrollbar {
+  width: 12px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: white;
+}
+html ::-webkit-scrollbar-track {
+  background: linear-gradient(45deg, #EE4540, #C72C41);
 }
 
 body {
@@ -504,12 +542,16 @@ body {
   gap: 2rem;
 }
 .contact .contact__main .contact__left {
-  flex: 1;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  flex: 1;
 }
-.contact .contact__main .contact__left img {
+.contact .contact__main .contact__left svg {
+  display: flex;
+  height: auto;
   width: 100%;
 }
 .contact .contact__main .contact__right {

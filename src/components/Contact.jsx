@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import illustration2 from "../assets/illustration2.png";
 import emailjs from "@emailjs/browser";
+import Illustration2 from "./svg/Illustration2";
 
 function Contact() {
   const form = useRef();
@@ -29,7 +30,7 @@ function Contact() {
     <section className="contact">
       <div className="contact__main">
         <div className="contact__left">
-          <img src={illustration2} alt="" />
+          <Illustration2/>
         </div>
         <div className="contact__right">
           <h2>Contact form</h2>

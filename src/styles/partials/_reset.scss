@@ -5,3 +5,17 @@
     text-decoration: none;
     list-style-type: none;
 }
+html {
+  scrollbar-width: normal;
+  ::-webkit-scrollbar{
+    width: 12px;
+
+  }
+  ::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: white;
+  }
+  ::-webkit-scrollbar-track{
+    background: linear-gradient(45deg, #EE4540, #C72C41);
+  }
+}
