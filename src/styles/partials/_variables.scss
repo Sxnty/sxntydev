@@ -17,7 +17,7 @@ $generalpadding: 1rem 4rem;
     cursor: pointer;
     transition: background 250ms;
     &:hover {
-        background: url('../images/button-bg.svg') no-repeat center;
+        background: url('../assets/button-bg.svg') no-repeat center;
         background-size: cover;
     }
 }

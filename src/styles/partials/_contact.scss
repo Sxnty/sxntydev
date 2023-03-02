@@ -1,7 +1,7 @@
 
 .contact {
     position: relative;
-    background: url("../images/contact-bg.svg") fixed center no-repeat;
+    background: url("../assets/contact-bg.svg") fixed center no-repeat;
     background-size: cover;
     .custom-shape-divider-top-1665581130 {
         position: absolute;
@@ -67,7 +67,7 @@
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             border-radius: 2rem;
 
-            background: url("../images/form-bg.svg")fixed no-repeat center;
+            background: url("../assets/form-bg.svg")fixed no-repeat center;
             background-size: cover;
             h2 {
                 color: white;
@@ -114,7 +114,7 @@
                     cursor: pointer;
                     transition: background 250ms;
                     &:hover {
-                        background: url("../images/form-bg.svg")no-repeat center;
+                        background: url("../assets/form-bg.svg")no-repeat center;
                         background-size: cover;
                     }
                 }
@@ -127,7 +127,7 @@
     
     height: 20vh;
     .connected__main {
-        background: url("../images/gradient-bg.png") fixed no-repeat center;
+        background: url("../assets/gradient-bg.png") fixed no-repeat center;
         background-size: cover;
         position: relative;
         padding: 5rem 5rem 0 5rem;
@@ -170,14 +170,14 @@
             text-align: center;
             padding: 1.5rem;
             gap: 1rem;
-            i {
+            svg {
                 border-radius: .25rem;
                 padding: .5rem;
-                font-size: 2rem;
+                font-size: 3rem;
                 color: $lightred;
                 transition: background,color 250ms;
                 &:hover {
-                    background: url("../images/background-desktop.svg") center no-repeat;
+                    background: url("../assets/background-desktop.svg") center no-repeat;
                     background-size: cover;
                     color: white;
                 }
@@ -185,3 +185,4 @@
         }
     }
 }
+

@@ -1,0 +1,41 @@
+#Vector_61 {
+    transform: translateX(2px);
+    animation: moveLands 2s infinite alternate;
+}
+#Vector_58 {
+    transform: translateY(-2px);
+    animation: moveLands 2s infinite alternate;
+}
+#Vector_55 {
+    transform: translateY(-2px) translateX(3px);
+    animation: moveLands 2s infinite alternate;
+}
+#Vector_56 {
+    transform: translateY(-2px) translateX(3px) rotateY(5deg);
+    animation: moveLands 2s infinite alternate;
+}
+#Vector_54 {
+    transform: translateY(-2px) translateX(3px) rotateY(5deg);
+    animation: moveLands 2s infinite alternate;
+}
+#Vector_70 {
+    transform: translateY(-2px) translateX(3px);
+    animation: moveLands 3s infinite alternate;
+}
+#Vector_13,#Vector_11 {
+    transform: rotateZ(.2deg);
+    animation: moveLands 1s infinite alternate;
+}
+#Vector_7 {
+    transform: rotateX(10deg);
+    animation: moveLands 3s infinite alternate ease-in-out;
+}
+#Vector_9 {
+    transform: rotateZ(.5deg);
+    animation: moveLands 1s infinite alternate ease-in-out;
+}
+@keyframes moveLands {
+    100% {
+        transform: unset;
+    }
+}

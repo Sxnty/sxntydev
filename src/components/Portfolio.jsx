@@ -2,14 +2,14 @@ import React from 'react'
 
 function Portfolio() {
   return (
-<section class="portfolio">
-        <div class="portfolio__main">
-          <div class="port__top">
-            <h2 class="works">WORKS.</h2>
-            <p class="pworks">your page could be here, What are you waiting for?</p>
+<section className="portfolio">
+        <div className="portfolio__main">
+          <div className="port__top">
+            <h2 className="works">WORKS.</h2>
+            <p className="pworks">your page could be here, What are you waiting for?</p>
           </div>
-          <div class="port__bottom">
-            <div class="port__card work1">
+          <div className="port__bottom">
+            <div className="port__card work1">
               <a href="https://sxnty.github.io/weather/">
                 <img
                   src="https://cdn.discordapp.com/attachments/642749336903614465/1079193172246265886/image.png"
@@ -17,7 +17,7 @@ function Portfolio() {
                 />
               </a>
             </div>
-            <div class="port__card work2">
+            <div className="port__card work2">
               <a href="https://sxnty.github.io/to-do/">
                 <img
                   src="https://cdn.discordapp.com/attachments/642749336903614465/1079193424017772635/image.png"
@@ -25,7 +25,7 @@ function Portfolio() {
                 />
               </a>
             </div>
-            <div class="port__card work3">
+            <div className="port__card work3">
               <a href="https://github.com/Sxnty/NiceVet">
                 <img
                   src="https://cdn.discordapp.com/attachments/642749336903614465/1079846495139926056/image.png"
@@ -33,7 +33,7 @@ function Portfolio() {
                 />
               </a>
             </div>
-            <div class="port__card work4">
+            <div className="port__card work4">
               <a href="https://sxnty.github.io/Huddle/">
                 <img
                   src="https://cdn.discordapp.com/attachments/642749336903614465/1079846551213592606/image.png"
@@ -41,7 +41,7 @@ function Portfolio() {
                 />
               </a>
             </div>
-            <div class="custom-shape-divider-bottom-1665582059">
+            <div className="custom-shape-divider-bottom-1665582059">
               <svg
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"

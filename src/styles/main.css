@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope&family=Raleway&family=Sora&display=swap");
-.hero__main .main__text button, .header .header__right .header__menu button {
+.hero__main .text__container button, .header .header__right .header__menu button {
   font-family: "Sora", sans-serif;
   background-color: transparent;
   padding: 0.5rem 2rem;
@@ -10,11 +10,61 @@
   cursor: pointer;
   transition: background 250ms;
 }
-.hero__main .main__text button:hover, .header .header__right .header__menu button:hover {
-  background: url("../images/button-bg.svg") no-repeat center;
+.hero__main .text__container button:hover, .header .header__right .header__menu button:hover {
+  background: url("../assets/button-bg.svg") no-repeat center;
   background-size: cover;
 }
 
+#Vector_61 {
+  transform: translateX(2px);
+  animation: moveLands 2s infinite alternate;
+}
+
+#Vector_58 {
+  transform: translateY(-2px);
+  animation: moveLands 2s infinite alternate;
+}
+
+#Vector_55 {
+  transform: translateY(-2px) translateX(3px);
+  animation: moveLands 2s infinite alternate;
+}
+
+#Vector_56 {
+  transform: translateY(-2px) translateX(3px) rotateY(5deg);
+  animation: moveLands 2s infinite alternate;
+}
+
+#Vector_54 {
+  transform: translateY(-2px) translateX(3px) rotateY(5deg);
+  animation: moveLands 2s infinite alternate;
+}
+
+#Vector_70 {
+  transform: translateY(-2px) translateX(3px);
+  animation: moveLands 3s infinite alternate;
+}
+
+#Vector_13, #Vector_11 {
+  transform: rotateZ(0.2deg);
+  animation: moveLands 1s infinite alternate;
+}
+
+#Vector_7 {
+  transform: rotateX(10deg);
+  animation: moveLands 3s infinite alternate ease-in-out;
+}
+
+#Vector_9 {
+  transform: rotateZ(0.5deg);
+  animation: moveLands 1s infinite alternate ease-in-out;
+}
+
+@keyframes moveLands {
+  100% {
+    transform: unset;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -71,7 +121,7 @@ body {
   color: rgb(221, 221, 221);
 }
 body {
-  background: url("../images/background-desktop.svg") fixed no-repeat;
+  background: url("../assets/background-desktop.svg") fixed no-repeat;
   background-size: cover;
 }
 
@@ -80,9 +130,9 @@ body {
   height: 100vh;
   display: flex;
   /*     .text__container {
-          display: flex;
-          flex: 1;
-      } */
+        display: flex;
+        flex: 1;
+    } */
 }
 .hero__main .custom-shape-divider-bottom-1665533085 {
   position: absolute;
@@ -100,50 +150,56 @@ body {
   height: 88px;
 }
 .hero__main .custom-shape-divider-bottom-1665533085 .shape-fill {
-  fill: #C72C41;
+  fill: #c72c41;
 }
-.hero__main .main__text {
+.hero__main .text__container {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
   align-items: center;
+  height: 100%;
   flex: 1;
 }
-.hero__main .main__text p {
+.hero__main .text__container p {
   color: rgb(209, 209, 209);
   font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
 }
-.hero__main .main__text #quote {
+.hero__main .text__container #quote {
   color: rgba(128, 128, 128, 0.575);
   font-style: italic;
 }
-.hero__main .main__text span p {
+.hero__main .text__container span p {
   font-family: "Sora", sans-serif;
   color: white;
 }
-.hero__main .main__text span p span {
+.hero__main .text__container span p span {
   color: #EE4540;
 }
-.hero__main .main__text h2 {
+.hero__main .text__container h2 {
   width: -moz-fit-content;
   width: fit-content;
   color: rgb(255, 255, 255);
   font-family: "Sora", sans-serif;
   font-size: 10rem;
 }
-.hero__main .main__text button {
+.hero__main .text__container button {
   margin-top: 2rem;
 }
-.hero__main .main__img {
-  animation: bounce 2s alternate infinite;
+.hero__main .main__illustration {
+  animation: bounce 5s alternate infinite;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   flex: 1;
 }
-.hero__main .main__img img {
+.hero__main .main__illustration svg {
   width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 @keyframes bounce {
   0% {
@@ -155,7 +211,7 @@ body {
 }
 
 .about {
-  background: url("../images/info-bg.svg") no-repeat center;
+  background: url("../assets/info-bg.svg") no-repeat center;
   background-size: cover;
   position: relative;
 }
@@ -189,7 +245,7 @@ body {
   align-items: center;
 }
 .about .about__main .about__left img {
-  background: url("../images/background-desktop.svg") fixed no-repeat;
+  background: url("../assets/background-desktop.svg") fixed no-repeat;
   width: 40%;
   border: 1px solid white;
   border-radius: 0.25rem;
@@ -211,7 +267,7 @@ body {
   font-family: "Sora", sans-serif;
   font-size: 3rem;
   background-color: #EE4540;
-  background: url("../images/background-desktop.svg") fixed center;
+  background: url("../assets/background-desktop.svg") fixed center;
   background-size: cover;
   width: -moz-fit-content;
   width: fit-content;
@@ -236,7 +292,7 @@ body {
 }
 
 .knowledge {
-  background: url("../images/background-desktop") fixed no-repeat;
+  background: url("../assets/background-desktop") fixed no-repeat;
   background-size: cover;
   padding: 3rem;
   position: relative;
@@ -308,22 +364,22 @@ body {
   gap: 5rem;
   display: flex;
 }
-.knowledge .know__main .know__bottom i {
+.knowledge .know__main .know__bottom svg {
   border-radius: 0.25rem;
   padding: 0.5rem;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #EE4540;
   transition: background, color 250ms;
 }
-.knowledge .know__main .know__bottom i:hover {
-  background: url("../images/background-desktop.svg") center no-repeat;
+.knowledge .know__main .know__bottom svg:hover {
+  background: url("../assets/background-desktop.svg") center no-repeat;
   background-size: cover;
   color: white;
 }
 
 .portfolio {
   padding: 10rem;
-  background: url("../images/portfolio-bg.svg") no-repeat;
+  background: url("../assets/portfolio-bg.svg") no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -386,7 +442,7 @@ body {
 
 .contact {
   position: relative;
-  background: url("../images/contact-bg.svg") fixed center no-repeat;
+  background: url("../assets/contact-bg.svg") fixed center no-repeat;
   background-size: cover;
 }
 .contact .custom-shape-divider-top-1665581130 {
@@ -447,7 +503,7 @@ body {
   padding: 3rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 2rem;
-  background: url("../images/form-bg.svg") fixed no-repeat center;
+  background: url("../assets/form-bg.svg") fixed no-repeat center;
   background-size: cover;
 }
 .contact .contact__main .contact__right h2 {
@@ -506,7 +562,7 @@ body {
   transition: background 250ms;
 }
 .contact .contact__main .contact__right form button:hover {
-  background: url("../images/form-bg.svg") no-repeat center;
+  background: url("../assets/form-bg.svg") no-repeat center;
   background-size: cover;
 }
 
@@ -514,7 +570,7 @@ body {
   height: 20vh;
 }
 .connected .connected__main {
-  background: url("../images/gradient-bg.png") fixed no-repeat center;
+  background: url("../assets/gradient-bg.png") fixed no-repeat center;
   background-size: cover;
   position: relative;
   padding: 5rem 5rem 0 5rem;
@@ -556,15 +612,15 @@ body {
   padding: 1.5rem;
   gap: 1rem;
 }
-.connected .connected__main .connected__socials i {
+.connected .connected__main .connected__socials svg {
   border-radius: 0.25rem;
   padding: 0.5rem;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #EE4540;
   transition: background, color 250ms;
 }
-.connected .connected__main .connected__socials i:hover {
-  background: url("../images/background-desktop.svg") center no-repeat;
+.connected .connected__main .connected__socials svg:hover {
+  background: url("../assets/background-desktop.svg") center no-repeat;
   background-size: cover;
   color: white;
 }

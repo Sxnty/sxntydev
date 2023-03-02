@@ -1,5 +1,5 @@
 .about {
-  background: url("../images/info-bg.svg") no-repeat center;
+  background: url("../assets/info-bg.svg") no-repeat center;
   background-size: cover;
   position: relative;
   .about__main {
@@ -33,7 +33,7 @@
       align-items: center;
 
       img {
-        background: url("../images/background-desktop.svg") fixed no-repeat;
+        background: url("../assets/background-desktop.svg") fixed no-repeat;
         width: 40%;
         border: 1px solid white;
         border-radius: 0.25rem;
@@ -56,7 +56,7 @@
         font-family: $titlefont;
         font-size: 3rem;
         background-color: $lightred;
-        background: url("../images/background-desktop.svg") fixed center;
+        background: url("../assets/background-desktop.svg") fixed center;
         background-size: cover;
         width: fit-content;
         border-bottom: 1px solid white;

@@ -3,36 +3,36 @@ import React from "react";
 function Header() {
   return (
     <>
-      <header class="header">
-        <div class="header__logo">
+      <header className="header">
+        <div className="header__logo">
           <a href="#">
             <h1>sxnty</h1>
           </a>
         </div>
-        <div class="header__right">
+        <div className="header__right">
           <nav>
-            <ul class="header__menu">
-              <li class="menu__item">
-                <a href="#" class="li1">
+            <ul className="header__menu">
+              <li className="menu__item">
+                <a href="#" className="li1">
                   Inicio
                 </a>
               </li>
-              <li class="menu__item">
-                <a href="#" class="li2">
+              <li className="menu__item">
+                <a href="#" className="li2">
                   About
                 </a>
               </li>
-              <li class="menu__item">
-                <a href="#" class="li3">
+              <li className="menu__item">
+                <a href="#" className="li3">
                   Portfolio
                 </a>
               </li>
-              <li class="menu__item">
-                <a href="#" class="li4">
+              <li className="menu__item">
+                <a href="#" className="li4">
                   Contact
                 </a>
               </li>
-              <button class="langSwitcher">English</button>
+              <button className="langSwitcher">English</button>
             </ul>
           </nav>
         </div>

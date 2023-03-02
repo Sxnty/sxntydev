@@ -1,5 +1,5 @@
 .knowledge {
-    background: url("../images/background-desktop") fixed no-repeat;
+    background: url("../assets/background-desktop") fixed no-repeat;
     background-size: cover;
     padding: 3rem;
     position: relative;
@@ -74,14 +74,14 @@
             padding: 1rem;
             gap: 5rem;
             display: flex;
-            i {
+            svg {
                 border-radius: .25rem;
                 padding: .5rem;
-                font-size: 3rem;
+                font-size: 4rem;
                 color: $lightred;
                 transition: background,color 250ms;
                 &:hover {
-                    background: url("../images/background-desktop.svg") center no-repeat;
+                    background: url("../assets/background-desktop.svg") center no-repeat;
                     background-size: cover;
                     color: white;
                 }
