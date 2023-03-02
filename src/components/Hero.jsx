@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Illustration1 from "./svg/Illustration1";
 
+import Typewriter from "typewriter-effect";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function Hero() {
+  AOS.init();
   return (
     <>
       <section className="hero__main">
@@ -19,18 +25,43 @@ function Hero() {
           </svg>
         </div>
         <div className="text__container">
-          <p className="p1">Hello there, I'm</p>
-          <h2>Sxnty</h2>
+          <p className="p1" data-aos="fade-right" data-aos-delay="300">
+            Hello there, I'm
+          </p>
+          <h2 data-aos="fade-right" data-aos-delay="500">
+            Sxnty
+          </h2>
           <span>
-            <p className="p2">
+            <p className="p2" data-aos="fade-up" data-aos-delay="550">
               I'm an <span>frontend developer</span> and
               <span> UX/UI designer.</span>
             </p>
           </span>
-          <p id="quote" className="quote">
-            ´´If you can imagine, you can create it´´
+          <p
+            id="quote"
+            className="quote"
+            data-aos="fade-up"
+            data-aos-delay="650"
+          >
+            {
+              <Typewriter
+                options={{
+                  strings: [
+                    "´´If you can imagine, you can create it´´",
+                    "´´The only limit to our realization is in our own minds´´",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                }}
+                onInit={(typewriter) => {
+                  typewriter.typeString().pauseFor(2500).deleteAll().start();
+                }}
+              />
+            }
           </p>
-          <button className="button">Contact me</button>
+          <div data-aos="zoom-in-up" data-aos-delay="700">
+            <button className="button">Contact me</button>
+          </div>
         </div>
         <div className="main__illustration">
           <Illustration1 />

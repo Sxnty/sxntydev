@@ -1,7 +1,13 @@
 import React from "react";
-import { FaHtml5,FaCss3Alt,FaSass,FaJsSquare,FaReact,FaNodeJs,FaGitAlt } from "react-icons/fa";
-
-
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaSass,
+  FaJsSquare,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+} from "react-icons/fa";
 
 function Knowledge() {
   return (
@@ -34,18 +40,35 @@ function Knowledge() {
           </svg>
         </div>
         <div className="know__top">
-          <h2 className="skills">My Skills.</h2>
-          <p className="plearning">every day learning new things</p>
+          <h2 className="skills" data-aos="zoom-in">
+            My Skills.
+          </h2>
+          <p className="plearning" data-aos="zoom-in" data-aos-delay="150">
+            every day learning new things
+          </p>
         </div>
         <div className="know__bottom">
-          <FaHtml5/>
-          <FaCss3Alt/>
-          <FaSass/>
-          <FaJsSquare/>
-          <FaReact/>
-          <FaNodeJs/>
-          <FaGitAlt/>
-
+          <div data-aos="zoom-in" data-aos-delay="150">
+            <FaHtml5 />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="250">
+            <FaCss3Alt />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="350">
+            <FaSass />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="450">
+            <FaJsSquare />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="350">
+            <FaReact />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="250">
+            <FaNodeJs />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="150">
+            <FaGitAlt />
+          </div>
         </div>
       </div>
     </section>

@@ -34,6 +34,7 @@
     transform: rotateZ(.5deg);
     animation: moveLands 1s infinite alternate ease-in-out;
 }
+
 @keyframes moveLands {
     100% {
         transform: unset;

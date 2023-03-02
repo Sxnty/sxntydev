@@ -1,7 +1,9 @@
 import React from "react";
+import me from "../assets/sxntyoil.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import me from '../assets/sxntyoil.png';
-
+AOS.init();
 function About() {
   return (
     <section className="about">
@@ -23,21 +25,23 @@ function About() {
           </div>
         </div>
         <div className="about__right">
-          <h2 className="h2about">About me.</h2>
-          <p className="pabout">
+          <h2 className="h2about" data-aos="fade-left" data-aos-duration="600">About me.</h2>
+          <p className="pabout" data-aos="fade-right">
             Hi there! I'm a passionate and enthusiastic Junior Front-end
             Developer. I love working on interesting and challenging projects,
             utilizing current web development trends and technologies.
-            <p className="pabout2">
-              I'm a dedicated, curious, and creative worker who's always eager
-              to learn new things and collaborate with others to achieve common
-              goals. If you're looking for someone to join your development
-              team, feel free to contact me!
-            </p>
           </p>
-          <a href="#" className="downloadcv">
-            Download CV here
-          </a>
+          <p className="pabout2" data-aos="fade-right" data-aos-delay="300">
+            I'm a dedicated, curious, and creative worker who's always eager to
+            learn new things and collaborate with others to achieve common
+            goals. If you're looking for someone to join your development team,
+            feel free to contact me!
+          </p>
+          <div className="" data-aos="fade-right" data-aos-delay="350">
+            <a href="#" className="downloadcv">
+              Download CV here
+            </a>
+          </div>
         </div>
       </div>
     </section>

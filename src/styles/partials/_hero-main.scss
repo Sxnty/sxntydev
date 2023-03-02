@@ -68,6 +68,7 @@ body {
       @extend %button-primary;
     }
   }
+
   .main__illustration {
     animation: bounce 5s alternate infinite;
     display: flex;
