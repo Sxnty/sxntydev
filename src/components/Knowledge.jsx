@@ -1,4 +1,7 @@
 import React from "react";
+import { FaHtml5,FaCss3Alt,FaSass,FaJsSquare,FaReact,FaNodeJs,FaGitAlt } from "react-icons/fa";
+
+
 
 function Knowledge() {
   return (
@@ -35,13 +38,14 @@ function Knowledge() {
           <p class="plearning">every day learning new things</p>
         </div>
         <div class="know__bottom">
-          <i class="fa-brands fa-html5"></i>
-          <i class="fa-brands fa-css3-alt"></i>
-          <i class="fa-brands fa-sass"></i>
-          <i class="fa-brands fa-js"></i>
-          <i class="fa-brands fa-react"></i>
-          <i class="fa-brands fa-node-js"></i>
-          <i class="fa-brands fa-github"></i>
+          <i><FaHtml5/></i>
+          <i><FaCss3Alt/></i>
+          <i><FaSass/></i>
+          <i><FaJsSquare/></i>
+          <i><FaReact/></i>
+          <i><FaNodeJs/></i>
+          <i><FaGitAlt/></i>
+
         </div>
       </div>
     </section>
