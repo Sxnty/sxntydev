@@ -8,7 +8,6 @@ function Contact() {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-    const { user_name, user_email, message } = e.target.elements;
     toast.success("Message sent successfully.", {
       position: "center",
     });
