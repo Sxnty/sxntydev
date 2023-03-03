@@ -1,26 +1,42 @@
 @media screen and (max-width: 480px) {
+  .about__main{
+    overflow-x: hidden;
+  }
+  html {
+  scrollbar-width: normal;
+  ::-webkit-scrollbar{
+    width: unset;
+
+  }
+  ::-webkit-scrollbar-thumb{
+    border-radius: unset;
+    background-color: unset;
+  }
+  ::-webkit-scrollbar-track{
+    background: unset;
+  }
+}
   .hero__main {
     padding: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    .main__text {
+    .text__container {
       padding: 8rem 0rem 0rem 0rem;
-      width: 100%;
-      max-width: 100%;
-      .text__container {
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        max-width: 80%;
-        h2 {
-          width: 100%;
-          font-size: 5rem;
-        }
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: auto;
+      h2 {
+        width: 100%;
+        font-size: 5rem;
+      } .p2{
+        margin: auto;
+        width: 90%;
       }
     }
-    .main__img {
-      img {
+    .main__illustration {
+      svg {
         width: 100%;
       }
     }
@@ -112,6 +128,9 @@
     .contact__main {
       padding: 3rem 0;
       flex-direction: column;
+    }
+    .contact__left{
+      padding-top: 7rem;
     }
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import me from "../assets/sxntyoil.png";
 import AOS from "aos";
 import "aos/dist/aos.css";

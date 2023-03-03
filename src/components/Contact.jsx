@@ -1,14 +1,17 @@
 import React, { useRef } from "react";
-import illustration2 from "../assets/illustration2.png";
 import emailjs from "@emailjs/browser";
 import Illustration2 from "./svg/Illustration2";
+import toast, { Toaster } from 'react-hot-toast';;
 
 function Contact() {
+
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
     const { user_name, user_email, message } = e.target.elements;
-
+    toast.success("Message sent successfully.", {
+      position: "center",
+    });
     emailjs
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
@@ -28,9 +31,10 @@ function Contact() {
 
   return (
     <section className="contact">
+            <Toaster />
       <div className="contact__main">
         <div className="contact__left">
-          <Illustration2/>
+          <Illustration2 />
         </div>
         <div className="contact__right">
           <h2>Contact form</h2>
@@ -57,7 +61,9 @@ function Contact() {
               required
               placeholder="Message"
             ></textarea>
-            <button type="submit" value="Send">Send</button>
+            <button type="submit" value="Send">
+              Send
+            </button>
           </form>
         </div>
       </div>
